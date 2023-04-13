@@ -1,0 +1,16 @@
+.menu-button {
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+}
+
+.menu-button:hover {
+    -fx-background-color: lightgray;
+}
+
+.menu {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+}
+.menu-button:pressed {
+    -fx-background-color: rgba(128, 128, 128, 0.6); /* Couleur de fond grise avec une opacité de 60% */
+}
