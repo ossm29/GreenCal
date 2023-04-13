@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/calendar-plus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/greencal/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/help.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/plant-plus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/plant.png" afterDir="false" />
+    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="ajout menu latéral et styles.css">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +66,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/images" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/greencal" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main" />
@@ -129,7 +124,8 @@
       <workItem from="1680695727990" duration="736000" />
       <workItem from="1680868503872" duration="7655000" />
       <workItem from="1681033360362" duration="8000" />
-      <workItem from="1681384688979" duration="7838000" />
+      <workItem from="1681384688979" duration="8458000" />
+      <workItem from="1681399172524" duration="663000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1680355569631</created>
@@ -145,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680871177392</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ajout menu latéral et styles.css">
+      <created>1681395782114</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681395782114</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +168,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="ajout menu latéral et styles.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout menu latéral et styles.css" />
   </component>
 </project>

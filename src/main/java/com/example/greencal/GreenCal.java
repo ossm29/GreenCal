@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -22,11 +23,11 @@ public class GreenCal extends Application {
         calendarView.setShowAddCalendarButton(false);
         calendarView.setShowDeveloperConsole(false);
 
-        Button homeButton = createIconButton("/images/home.png");
-        Button newEventButton = createIconButton("/images/calendar-plus.png");
-        Button myPlantsButton = createIconButton("/images/plant.png");
-        Button newPlantButton = createIconButton("/images/plant-plus.png");
-        Button helpButton = createIconButton("/images/help.png");
+        Button homeButton = createIconButton("/images/home.png","Accueil");
+        Button newEventButton = createIconButton("/images/calendar-plus.png","Nouvel évènement");
+        Button myPlantsButton = createIconButton("/images/plant.png","Consulter les plantes");
+        Button newPlantButton = createIconButton("/images/plant-plus.png","Nouvelle plante");
+        Button helpButton = createIconButton("/images/help.png","Aide");
 
         VBox menu = new VBox(10, homeButton, newEventButton, myPlantsButton, newPlantButton, helpButton);
         menu.setAlignment(Pos.TOP_LEFT);
@@ -50,7 +51,7 @@ public class GreenCal extends Application {
         launch(args);
     }
 
-    private Button createIconButton(String imagePath) {
+    private Button createIconButton(String imagePath, String tooltipText) {
         ImageView imageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath))));
         imageView.setFitWidth(24);
         imageView.setFitHeight(24);
@@ -59,8 +60,12 @@ public class GreenCal extends Application {
         button.setGraphic(imageView);
         button.getStyleClass().add("menu-button");
 
+        Tooltip tooltip = new Tooltip(tooltipText);
+        Tooltip.install(button, tooltip);
+
         return button;
     }
+
 
 
 }
