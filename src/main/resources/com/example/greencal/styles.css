@@ -14,3 +14,7 @@
 .menu-button:pressed {
     -fx-background-color: rgba(128, 128, 128, 0.6); /* Couleur de fond grise avec une opacité de 60% */
 }
+
+.form-background {
+    -fx-background-color: #a8f8a8;
+}

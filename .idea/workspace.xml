@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="ajout menu latéral et styles.css">
+    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="test ajout formulaire">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlNewPlant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/greencal/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/greencal/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,12 +18,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="test" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -60,7 +68,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -75,7 +83,14 @@
       <recent name="com.example.greencal" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.GreenCal">
+    <configuration name="GreenCal" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.greencal.GreenCal" />
+      <module name="GreenCal" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.greencal.HelloApplication" />
       <module name="GreenCal" />
@@ -89,8 +104,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.GreenCal" />
+      <item itemvalue="Application.HelloApplication" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
@@ -126,6 +147,7 @@
       <workItem from="1681033360362" duration="8000" />
       <workItem from="1681384688979" duration="8458000" />
       <workItem from="1681399172524" duration="663000" />
+      <workItem from="1681465012947" duration="5173000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1680355569631</created>
@@ -170,5 +192,9 @@
     <MESSAGE value="init" />
     <MESSAGE value="ajout menu latéral et styles.css" />
     <option name="LAST_COMMIT_MESSAGE" value="ajout menu latéral et styles.css" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

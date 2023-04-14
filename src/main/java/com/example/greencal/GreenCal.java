@@ -38,6 +38,10 @@ public class GreenCal extends Application {
         mainPane.setLeft(menu);
         mainPane.setCenter(calendarView);
 
+        /* Handler des boutons */
+        homeButton.setOnAction(event -> mainPane.setCenter(calendarView));
+        newPlantButton.setOnAction(new ControlNewPlant(mainPane));
+
         Scene scene = new Scene(mainPane, 800, 600);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
 
