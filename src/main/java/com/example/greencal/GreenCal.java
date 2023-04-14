@@ -41,6 +41,7 @@ public class GreenCal extends Application {
         /* Handler des boutons */
         homeButton.setOnAction(event -> mainPane.setCenter(calendarView));
         newPlantButton.setOnAction(new ControlNewPlant(mainPane));
+        myPlantsButton.setOnAction(new ControlMyPlants(mainPane));
 
         Scene scene = new Scene(mainPane, 800, 600);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());

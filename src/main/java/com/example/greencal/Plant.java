@@ -13,6 +13,10 @@ public class Plant {
     private LocalDate entretienDate;
     private LocalDate recolteDate;
 
+    /** constructeur sans argument */
+    public Plant() {
+    }
+
     public Plant(String surnom, String nomScientifique, String imagePath, LocalDate plantationDate, LocalDate rempotageDate, LocalDate arrosageDate, LocalDate entretienDate, LocalDate recolteDate) {
         this.id = PlantID.id;
         this.surnom = surnom;
