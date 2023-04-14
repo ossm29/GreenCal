@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="Ajout Mes Plantes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlMyPlants.java" afterDir="false" />
+    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="Ajout mes plantes">
       <change afterPath="$PROJECT_DIR$/src/main/resources/Plants/Plant1.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/Plant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/PlantID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/PlantID.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +151,7 @@
       <workItem from="1681399172524" duration="663000" />
       <workItem from="1681465012947" duration="5435000" />
       <workItem from="1681472274556" duration="1875000" />
-      <workItem from="1681474850392" duration="8951000" />
+      <workItem from="1681474850392" duration="9918000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1680355569631</created>
@@ -190,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681474147139</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ajout mes plantes">
+      <created>1681484140106</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681484140106</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +219,8 @@
     <MESSAGE value="ajout formulaire" />
     <MESSAGE value="ajout stockage plantes" />
     <MESSAGE value="Ajout Mes Plantes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout Mes Plantes" />
+    <MESSAGE value="Ajout mes plantes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout mes plantes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
