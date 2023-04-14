@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="test ajout formulaire">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlNewPlant.java" afterDir="false" />
+    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="ajout formulaire">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/Plant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/PlantID.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Plants1.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/greencal/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/greencal/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlNewPlant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlNewPlant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +76,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.greencal" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/images" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/greencal" />
@@ -147,7 +153,8 @@
       <workItem from="1681033360362" duration="8000" />
       <workItem from="1681384688979" duration="8458000" />
       <workItem from="1681399172524" duration="663000" />
-      <workItem from="1681465012947" duration="5173000" />
+      <workItem from="1681465012947" duration="5435000" />
+      <workItem from="1681472274556" duration="1714000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1680355569631</created>
@@ -170,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681395782114</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ajout formulaire">
+      <created>1681472103145</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681472103145</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +205,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init" />
     <MESSAGE value="ajout menu latéral et styles.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout menu latéral et styles.css" />
+    <MESSAGE value="ajout formulaire" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout formulaire" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

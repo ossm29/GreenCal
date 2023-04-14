@@ -4,6 +4,8 @@ module com.example.greencal {
             
         requires org.controlsfx.controls;
     requires com.calendarfx.view;
+    requires com.fasterxml.jackson.databind;
+    requires com.fasterxml.jackson.datatype.jsr310;
 
     opens com.example.greencal to javafx.fxml;
     exports com.example.greencal;

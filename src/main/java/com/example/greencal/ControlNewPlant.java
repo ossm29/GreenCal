@@ -8,8 +8,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+
+
 
 import java.io.File;
+import java.io.IOException;
+import java.time.LocalDate;
 
 /** Event handler du bouton newPlant */
 public class ControlNewPlant implements EventHandler<ActionEvent> {
@@ -66,6 +73,26 @@ public class ControlNewPlant implements EventHandler<ActionEvent> {
 
         // Bouton enregistrer
         Button saveButton = new Button("Enregistrer");
+
+        saveButton.setOnAction(e -> {
+            // Créer un objet Plant avec les valeurs du formulaire
+            Plant plant = new Plant(
+                    surnom.getText(),
+                    nomScientifique.getText(),
+                    selectedImageLabel.getText(),
+                    plantingDatePicker.getValue(),
+                    repottingDatePicker.getValue(),
+                    wateringDatePicker.getValue(),
+                    maintenanceDatePicker.getValue(),
+                    harvestDatePicker.getValue()
+            );
+            // Enregistrer la plante dans un fichier JSON
+            savePlant(plant);
+
+            // Incrémenter l'ID pour la prochaine plante
+            PlantID.id++;
+        });
+
         saveButton.setMaxWidth(300);
         saveButton.setPrefHeight(40);
 
@@ -82,6 +109,21 @@ public class ControlNewPlant implements EventHandler<ActionEvent> {
         mainPane.setCenter(form);
     }
 
+    private void savePlant(Plant plant) {
+        // Créez un objet ObjectMapper
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+
+        // Créez un fichier avec un nom basé sur l'ID de la plante
+        File plantFile = new File("src/main/resources/Plants/Plant" + PlantID.id + ".json");
+
+        try {
+            // Écrire l'objet Plant au format JSON dans le fichier
+            objectMapper.writeValue(plantFile, plant);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @Override
