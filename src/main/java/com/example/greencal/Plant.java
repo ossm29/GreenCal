@@ -2,6 +2,7 @@ package com.example.greencal;
 
 import java.time.LocalDate;
 
+/** Classe qui représente une plante*/
 public class Plant {
     private int id;
     private String surnom;
@@ -13,7 +14,7 @@ public class Plant {
     private LocalDate entretienDate;
     private LocalDate recolteDate;
 
-    /** constructeur sans argument */
+    /** Constructeur sans argument */
     public Plant() {
     }
 

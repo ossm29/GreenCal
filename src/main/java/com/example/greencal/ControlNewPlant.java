@@ -103,7 +103,7 @@ public class ControlNewPlant implements EventHandler<ActionEvent> {
                 harvestDateLabel, harvestDatePicker, selectImageButton, selectedImageLabel, saveButton);
 
         // Balise CSS
-        form.getStyleClass().add("form-background");
+        form.getStyleClass().add("plants-background");
 
         // Affichez le formulaire
         mainPane.setCenter(form);

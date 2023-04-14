@@ -43,7 +43,7 @@ public class GreenCal extends Application {
         newPlantButton.setOnAction(new ControlNewPlant(mainPane));
         myPlantsButton.setOnAction(new ControlMyPlants(mainPane));
 
-        Scene scene = new Scene(mainPane, 800, 600);
+        Scene scene = new Scene(mainPane, 1080, 720);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
 
         primaryStage.setTitle("GreenCal");

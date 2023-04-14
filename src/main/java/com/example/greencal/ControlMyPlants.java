@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,7 +24,10 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+
+/** Contrôleur associé au bouton myPlants permettant de consulter la liste des plantes */
 public class ControlMyPlants implements EventHandler<ActionEvent> {
 
     private BorderPane mainPane;
@@ -39,6 +43,10 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
 
         // Table des plantes
         TableView<Plant> plantsTable = new TableView<>();
+
+        // largeur fixe pour le tableau
+        plantsTable.setMaxWidth(900);
+
         TableColumn<Plant, Integer> idColumn = new TableColumn<>("ID");
         idColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getId()));
 
@@ -57,6 +65,10 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
         plantsTable.getColumns().addAll(idColumn, imageColumn, surnomColumn, plantingDateColumn);
         plantsTable.setItems(loadPlants());
 
+        // StackPane pour centrer horizontalement le tableau
+        StackPane tableContainer = new StackPane(plantsTable);
+        tableContainer.setAlignment(Pos.CENTER);
+
         // Ajouter un événement pour afficher les détails de la plante et planifier des événements/tâches spécifiques
         plantsTable.setRowFactory(tv -> {
             TableRow<Plant> row = new TableRow<>();
@@ -70,7 +82,7 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
             return row;
         });
 
-        VBox content = new VBox(10, titleLabel, plantsTable);
+        VBox content = new VBox(10, titleLabel, tableContainer);
         content.setAlignment(Pos.CENTER);
         content.getStyleClass().add("content");
 
@@ -78,6 +90,11 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
     }
 
 
+    /**
+     * Charge les plantes stockées dans des fichiers JSON du dossier 'Plants'.
+     *
+     * @return une liste observable contenant les objets Plant chargés depuis les fichiers JSON.
+     */
     private ObservableList<Plant> loadPlants() {
         ObservableList<Plant> plants = FXCollections.observableArrayList();
         ObjectMapper objectMapper = new ObjectMapper();
@@ -85,21 +102,28 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
 
         try {
             Path plantsDirectory = Paths.get("src/main/resources/Plants");
-            List<File> plantFiles = Files.walk(plantsDirectory)
-                    .filter(Files::isRegularFile)
-                    .map(Path::toFile)
-                    .toList();
-
+            // liste pour stocker les fichiers de plantes.
+            List<File> plantFiles;
+            try (Stream<Path> pathStream = Files.walk(plantsDirectory)) {
+                // Récupère la liste des fichiers de plantes dans le répertoire 'Plants'.
+                plantFiles = pathStream
+                        .filter(Files::isRegularFile)
+                        .map(Path::toFile)
+                        .collect(Collectors.toList());
+            }
+            // Parcourt chaque fichier de la liste des fichiers de plantes
             for (File plantFile : plantFiles) {
+                // Lit l'objet Plant à partir du fichier JSON et l'ajoute à la liste observable plants
                 Plant plant = objectMapper.readValue(plantFile, Plant.class);
                 plants.add(plant);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        // Retourne la liste observable des objets Plant chargés.
         return plants;
     }
+
 
     private void showPlantDetails(BorderPane mainPane, Plant plant) {
         // Afficher les détails de la plante et permettre à l'utilisateur de planifier des événements/tâches spécifiques
