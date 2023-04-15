@@ -27,6 +27,11 @@ public class ControlNewPlant implements EventHandler<ActionEvent> {
     }
 
     public void showNewPlantForm(BorderPane mainPane) {
+
+        // Titre "Nouvelle Plante"
+        Label titleLabel = new Label("Nouvelle Plante");
+        titleLabel.getStyleClass().add("title-label"); // Balise CSS pour le titre
+
         // Utilisez une VBox pour le formulaire
         VBox form = new VBox(10);
         form.setAlignment(Pos.CENTER);
@@ -96,11 +101,12 @@ public class ControlNewPlant implements EventHandler<ActionEvent> {
         saveButton.setMaxWidth(300);
         saveButton.setPrefHeight(40);
 
-        // Ajout des champs du formulaire à la VBox
-        form.getChildren().addAll(surnomLabel, surnom, nomScientifiqueLabel, nomScientifique,
+        // Ajout du titre et des champs du formulaire à la VBox
+        form.getChildren().addAll(titleLabel, surnomLabel, surnom, nomScientifiqueLabel, nomScientifique,
                 plantingDateLabel, plantingDatePicker, repottingDateLabel, repottingDatePicker,
                 wateringDateLabel, wateringDatePicker, maintenanceDateLabel, maintenanceDatePicker,
                 harvestDateLabel, harvestDatePicker, selectImageButton, selectedImageLabel, saveButton);
+
 
         // Balise CSS
         form.getStyleClass().add("plants-background");

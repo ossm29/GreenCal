@@ -36,6 +36,21 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
         this.mainPane = mainPane;
     }
 
+    @Override
+    public void handle(ActionEvent actionEvent) {
+        showMyPlants(mainPane);
+    }
+
+    /**
+     * Affiche la liste des plantes de l'utilisateur avec leurs informations principales
+     * dans un tableau. Le tableau est centré sur l'écran et comprend un titre "Mes Plantes"
+     * ainsi qu'un bouton "Supprimer" pour supprimer une plante sélectionnée.
+     * Un double-clic sur une plante du tableau permet d'afficher les détails de la plante
+     * et de planifier des événements/tâches spécifiques.
+     *
+     * @param mainPane Le BorderPane principal de l'application sur lequel le contenu
+     *                 de la méthode sera ajouté.
+     */
     public void showMyPlants(BorderPane mainPane) {
         // Titre "Mes Plantes"
         Label titleLabel = new Label("Mes Plantes");
@@ -180,8 +195,5 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
         }
     }
 
-    @Override
-    public void handle(ActionEvent actionEvent) {
-        showMyPlants(mainPane);
-    }
+
 }

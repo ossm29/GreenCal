@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="modif affichage liste de plantes">
+    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="ajout suppression des plantes et modif affichage liste de plantes">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Plants/Plant1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Plants/Plant2.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlMyPlants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlMyPlants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Plants/Plant2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Plants/Plant3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlNewPlant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlNewPlant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/greencal/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/greencal/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -156,7 +157,7 @@
       <workItem from="1681474850392" duration="10416000" />
       <workItem from="1681495971088" duration="2615000" />
       <workItem from="1681510644484" duration="349000" />
-      <workItem from="1681557686078" duration="2677000" />
+      <workItem from="1681557686078" duration="4358000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1680355569631</created>
@@ -214,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681497865412</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ajout suppression des plantes et modif affichage liste de plantes">
+      <created>1681560398424</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681560398424</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +249,8 @@
     <MESSAGE value="Ajout mes plantes" />
     <MESSAGE value="Debug id plantes" />
     <MESSAGE value="modif affichage liste de plantes" />
-    <option name="LAST_COMMIT_MESSAGE" value="modif affichage liste de plantes" />
+    <MESSAGE value="ajout suppression des plantes et modif affichage liste de plantes" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout suppression des plantes et modif affichage liste de plantes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
