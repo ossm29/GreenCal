@@ -18,3 +18,10 @@
 .plants-background {
     -fx-background-color: #a8f8a8;
 }
+
+.title-label {
+    -fx-font-size: 40px;
+    -fx-font-weight: bold; /* Ajout d'un style de police gras pour plus de visibilité */
+}
+
+

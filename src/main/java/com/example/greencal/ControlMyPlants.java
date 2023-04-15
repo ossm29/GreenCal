@@ -6,13 +6,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.util.Callback;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -23,6 +22,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -39,7 +39,7 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
     public void showMyPlants(BorderPane mainPane) {
         // Titre "Mes Plantes"
         Label titleLabel = new Label("Mes Plantes");
-        titleLabel.getStyleClass().add("title-label");
+        titleLabel.getStyleClass().add("title-label"); // Balise CSS
 
         // Table des plantes
         TableView<Plant> plantsTable = new TableView<>();
@@ -69,6 +69,17 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
         StackPane tableContainer = new StackPane(plantsTable);
         tableContainer.setAlignment(Pos.CENTER);
 
+        // Bouton "Supprimer"
+        Button deleteButton = new Button("Supprimer");
+        deleteButton.setOnAction(event -> {
+            Plant selectedPlant = plantsTable.getSelectionModel().getSelectedItem();
+            if (selectedPlant != null) {
+                deletePlant(selectedPlant, plantsTable);
+            }
+        });
+
+
+
         // Ajouter un événement pour afficher les détails de la plante et planifier des événements/tâches spécifiques
         plantsTable.setRowFactory(tv -> {
             TableRow<Plant> row = new TableRow<>();
@@ -82,9 +93,19 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
             return row;
         });
 
-        VBox content = new VBox(10, titleLabel, tableContainer);
+        // HBox pour contenir le titre et le bouton "Supprimer"
+        HBox header = new HBox(titleLabel, deleteButton);
+        header.setSpacing(10);
+        header.setAlignment(Pos.CENTER);
+        HBox.setHgrow(deleteButton, Priority.ALWAYS);
+        header.setPadding(new Insets(20, 0, 0, 0)); // Ajout d'un peu d'espace en haut
+
+        VBox content = new VBox(10, header, tableContainer);
         content.setAlignment(Pos.CENTER);
         content.getStyleClass().add("content");
+
+        content.getStyleClass().add("plants-background");
+
 
         mainPane.setCenter(content);
     }
@@ -124,10 +145,39 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
         return plants;
     }
 
-
+    /** Méthode appelée lors du double-clic sur une plante de la liste */
     private void showPlantDetails(BorderPane mainPane, Plant plant) {
         // Afficher les détails de la plante et permettre à l'utilisateur de planifier des événements/tâches spécifiques
         // On peut créer une nouvelle méthode ou classe pour gérer l'affichage des détails de la plante et la planification des événements/tâches.
+    }
+
+    /**
+     * Supprime une plante spécifiée de la liste des plantes et du stockage (fichier JSON).
+     * Affiche une boîte de dialogue de confirmation avant de procéder à la suppression.
+     *
+     * @param plant       La plante à supprimer.
+     * @param plantsTable La table des plantes à mettre à jour après la suppression.
+     */
+    private void deletePlant(Plant plant, TableView<Plant> plantsTable) {
+        // Afficher un pop-up de confirmation
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Supprimer la plante");
+        alert.setHeaderText(null);
+        alert.setContentText("Voulez-vous supprimer la plante " + plant.getSurnom() + " ?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // Supprimer la plante de la liste et du stockage
+            plantsTable.getItems().remove(plant);
+
+            // Supprimer la plante du stockage (fichier JSON)
+            try {
+                Path plantFile = Paths.get("src/main/resources/Plants/Plant" + plant.getId() + ".json");
+                Files.deleteIfExists(plantFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
