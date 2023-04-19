@@ -13,9 +13,13 @@ public class Plant {
 
     private ArrayList<String> notes = new ArrayList<>();
 
+    private ArrayList<PlantSizeMeasurement> sizeMeasurements = new ArrayList<>();
+
+
     private LocalDate plantationDate;
     private LocalDate rempotageDate;
     private LocalDate arrosageDate;
+
     private LocalDate entretienDate;
     private LocalDate recolteDate;
 
@@ -109,7 +113,7 @@ public class Plant {
         this.recolteDate = recolteDate;
     }
 
-    public List<String> getNotes() {
+    public ArrayList<String> getNotes() {
         return notes;
     }
 
@@ -120,5 +124,15 @@ public class Plant {
     public void addNote(String note) {
         this.notes.add(note);
     }
+
+    public ArrayList<PlantSizeMeasurement> getSizeMeasurements() {
+        return sizeMeasurements;
+    }
+
+    public void setSizeMeasurements(ArrayList<PlantSizeMeasurement> sizeMeasurements) {
+        this.sizeMeasurements = sizeMeasurements;
+    }
+
+
 }
 
