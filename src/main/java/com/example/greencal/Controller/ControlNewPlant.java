@@ -1,11 +1,12 @@
-package com.example.greencal;
+package com.example.greencal.Controller;
+import com.example.greencal.Plant;
+import com.example.greencal.PlantID;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,7 +31,7 @@ public class ControlNewPlant implements EventHandler<ActionEvent> {
 
         // Titre "Nouvelle Plante"
         Label titleLabel = new Label("Nouvelle Plante");
-        titleLabel.getStyleClass().add("title-label"); // Balise CSS pour le titre
+        titleLabel.getStyleClass().add("title2-label"); // Balise CSS pour le titre
 
         // Utilisez une VBox pour le formulaire
         VBox form = new VBox(10);
@@ -76,6 +77,47 @@ public class ControlNewPlant implements EventHandler<ActionEvent> {
             }
         });
 
+
+        // Ajoutez une HBox pour organiser les éléments horizontalement
+        HBox container = new HBox(20);
+        container.setAlignment(Pos.CENTER);
+
+        // VBox pour l'image à gauche
+        VBox leftBox = new VBox();
+        leftBox.setAlignment(Pos.CENTER);
+        ImageView imageView = new ImageView();
+        imageView.setFitWidth(200);
+        imageView.setFitHeight(200);
+        imageView.setPreserveRatio(true);
+        leftBox.getChildren().add(imageView);
+
+        // VBox pour les notes à droite
+        VBox rightBox = new VBox(10);
+        rightBox.setAlignment(Pos.CENTER);
+        Label notesLabel = new Label("Notes:");
+        TextArea notesArea = new TextArea();
+        notesArea.setPromptText("Ajoutez des notes ici...");
+        notesArea.setMaxWidth(300);
+        notesArea.setMaxHeight(100);
+        rightBox.getChildren().addAll(notesLabel, notesArea);
+
+        // Mettre à jour l'action du bouton "Choisir une image" pour afficher l'image sélectionnée
+        selectImageButton.setOnAction(e -> {
+            FileChooser fileChooser = new FileChooser();
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif");
+            fileChooser.getExtensionFilters().add(extFilter);
+            File selectedFile = fileChooser.showOpenDialog(mainPane.getScene().getWindow());
+
+            if (selectedFile != null) {
+                selectedImageLabel.setText(selectedFile.getAbsolutePath());
+                Image image = new Image(selectedFile.toURI().toString());
+                imageView.setImage(image);
+            } else {
+                selectedImageLabel.setText("Aucun fichier sélectionné");
+                imageView.setImage(null);
+            }
+        });
+
         // Bouton enregistrer
         Button saveButton = new Button("Enregistrer");
 
@@ -91,6 +133,9 @@ public class ControlNewPlant implements EventHandler<ActionEvent> {
                     maintenanceDatePicker.getValue(),
                     harvestDatePicker.getValue()
             );
+            if(notesArea.getText() != null) {
+                plant.addNote(notesArea.getText());
+            }
             // Enregistrer la plante dans un fichier JSON
             savePlant(plant);
 
@@ -101,18 +146,19 @@ public class ControlNewPlant implements EventHandler<ActionEvent> {
         saveButton.setMaxWidth(300);
         saveButton.setPrefHeight(40);
 
-        // Ajout du titre et des champs du formulaire à la VBox
         form.getChildren().addAll(titleLabel, surnomLabel, surnom, nomScientifiqueLabel, nomScientifique,
                 plantingDateLabel, plantingDatePicker, repottingDateLabel, repottingDatePicker,
                 wateringDateLabel, wateringDatePicker, maintenanceDateLabel, maintenanceDatePicker,
                 harvestDateLabel, harvestDatePicker, selectImageButton, selectedImageLabel, saveButton);
 
+        // Ajouter les éléments à la HBox
+        container.getChildren().addAll(leftBox, form, rightBox);
 
         // Balise CSS
-        form.getStyleClass().add("plants-background");
+        container.getStyleClass().add("plants-background");
 
         // Affichez le formulaire
-        mainPane.setCenter(form);
+        mainPane.setCenter(container);
     }
 
     private void savePlant(Plant plant) {

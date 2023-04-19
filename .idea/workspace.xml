@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="ajout suppression des plantes et modif affichage liste de plantes">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Plants/Plant1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Plants/Plant2.json" afterDir="false" />
+    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="réorganisation MyPlants, modifs affichage newPlant">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Plants/Plant6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Plants/Plant7.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlMyPlants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlMyPlants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlNewPlant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlNewPlant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlMyPlants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/Controller/ControlMyPlants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlNewPlant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/Controller/ControlNewPlant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/Plant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/greencal/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/greencal/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="test" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,7 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "test",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -85,6 +88,7 @@
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.greencal.Controller" />
       <recent name="com.example.greencal" />
     </key>
   </component>
@@ -101,7 +105,7 @@
       <module name="GreenCal" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.greencal.*" />
+          <option name="PATTERN" value="com.example.greencal.Controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,6 +119,8 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="Application.HelloApplication" />
         <item itemvalue="Application.HelloApplication" />
         <item itemvalue="Application.HelloApplication" />
@@ -157,7 +163,20 @@
       <workItem from="1681474850392" duration="10416000" />
       <workItem from="1681495971088" duration="2615000" />
       <workItem from="1681510644484" duration="349000" />
-      <workItem from="1681557686078" duration="4358000" />
+      <workItem from="1681557686078" duration="8307000" />
+      <workItem from="1681566741258" duration="256000" />
+      <workItem from="1681567561810" duration="325000" />
+      <workItem from="1681576295805" duration="94000" />
+      <workItem from="1681576511430" duration="2590000" />
+      <workItem from="1681593320839" duration="196000" />
+      <workItem from="1681595118127" duration="114000" />
+      <workItem from="1681642909165" duration="16000" />
+      <workItem from="1681678803178" duration="724000" />
+      <workItem from="1681724141248" duration="94000" />
+      <workItem from="1681724641383" duration="104000" />
+      <workItem from="1681730989722" duration="9000" />
+      <workItem from="1681848322663" duration="1242000" />
+      <workItem from="1681932860813" duration="3767000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1680355569631</created>
@@ -222,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681560398424</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="réorganisation MyPlants, modifs affichage newPlant">
+      <created>1681562176305</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681562176305</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +276,8 @@
     <MESSAGE value="Debug id plantes" />
     <MESSAGE value="modif affichage liste de plantes" />
     <MESSAGE value="ajout suppression des plantes et modif affichage liste de plantes" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout suppression des plantes et modif affichage liste de plantes" />
+    <MESSAGE value="réorganisation MyPlants, modifs affichage newPlant" />
+    <option name="LAST_COMMIT_MESSAGE" value="réorganisation MyPlants, modifs affichage newPlant" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
