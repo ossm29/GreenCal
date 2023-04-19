@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Optional;
 
 public class PlantPage extends VBox {
@@ -78,19 +79,20 @@ public class PlantPage extends VBox {
     private VBox createListWithHeaderAndButton(String title, ArrayList<LocalDate> dates, Runnable onButtonClick) {
         Label header = new Label(title);
         ListView<LocalDate> listView = new ListView<>();
-        listView.getItems().addAll(dates);
+        dates.stream().filter(Objects::nonNull).forEach(listView.getItems()::add);
 
         Button addButton = new Button("+");
         addButton.setOnAction(e -> {
             onButtonClick.run();
             listView.getItems().clear();
-            listView.getItems().addAll(dates);
+            dates.stream().filter(Objects::nonNull).forEach(listView.getItems()::add);
         });
 
         VBox container = new VBox(5, header, listView, addButton);
 
         return container;
     }
+
 
     private LocalDate showDatePickerDialog() {
         Dialog<LocalDate> dialog = new Dialog<>();
