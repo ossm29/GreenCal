@@ -1,5 +1,6 @@
 package com.example.greencal;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +16,23 @@ public class Plant {
 
     private ArrayList<PlantSizeMeasurement> sizeMeasurements = new ArrayList<>();
 
-
     private LocalDate plantationDate;
     private LocalDate rempotageDate;
+
+    private ArrayList<LocalDate> rempotageDates = new ArrayList<>();
+
     private LocalDate arrosageDate;
 
+    private ArrayList<LocalDate> arrosageDates = new ArrayList<>();
+
     private LocalDate entretienDate;
+
+    private ArrayList<LocalDate> entretienDates = new ArrayList<>();
+
     private LocalDate recolteDate;
+
+    private ArrayList<LocalDate> recolteDates = new ArrayList<>();
+
 
     /** Constructeur sans argument */
     public Plant() {
@@ -33,10 +44,18 @@ public class Plant {
         this.nomScientifique = nomScientifique;
         this.imagePath = imagePath;
         this.plantationDate = plantationDate;
+
         this.rempotageDate = rempotageDate;
+        this.recolteDates.add(rempotageDate);
+
         this.arrosageDate = arrosageDate;
+        this.arrosageDates.add(arrosageDate);
+
         this.entretienDate = entretienDate;
+        this.entretienDates.add(entretienDate);
+
         this.recolteDate = recolteDate;
+        this.recolteDates.add(recolteDate);
     }
 
 
@@ -133,6 +152,64 @@ public class Plant {
         this.sizeMeasurements = sizeMeasurements;
     }
 
+    public ArrayList<LocalDate> getArrosageDates() {
+        return arrosageDates;
+    }
+
+    public void setArrosageDates(ArrayList<LocalDate> arrosageDates) {
+        this.arrosageDates = arrosageDates;
+    }
+
+    public ArrayList<LocalDate> getEntretienDates() {
+        return entretienDates;
+    }
+
+    public void setEntretienDates(ArrayList<LocalDate> entretienDates) {
+        this.entretienDates = entretienDates;
+    }
+
+    public ArrayList<LocalDate> getRecolteDates() {
+        return recolteDates;
+    }
+
+    public void setRecolteDates(ArrayList<LocalDate> recolteDates) {
+        this.recolteDates = recolteDates;
+    }
+
+    public void addArrosageDate(LocalDate date) {
+        arrosageDates.add(date);
+        this.arrosageDate = date;
+        PlantDataHandler.savePlantToFile(this, "src/main/resources/Plants/Plant" + this.id + ".json");
+
+    }
+
+    public void addEntretienDate(LocalDate date) {
+        entretienDates.add(date);
+        this.entretienDate = date;
+        PlantDataHandler.savePlantToFile(this, "src/main/resources/Plants/Plant" + this.id + ".json");
+
+    }
+
+    public void addRecolteDate(LocalDate date) {
+        recolteDates.add(date);
+        this.recolteDate = date;
+        PlantDataHandler.savePlantToFile(this, "src/main/resources/Plants/Plant" + this.id + ".json");
+    }
+
+    public ArrayList<LocalDate> getRempotageDates() {
+        return rempotageDates;
+    }
+
+    public void setRempotageDates(ArrayList<LocalDate> rempotageDates) {
+        this.rempotageDates = rempotageDates;
+    }
+
+    public void addRempotageDate(LocalDate date) {
+        rempotageDates.add(date);
+        this.rempotageDate = date;
+        PlantDataHandler.savePlantToFile(this, "src/main/resources/Plants/Plant" + this.id + ".json");
+
+    }
 
 }
 
