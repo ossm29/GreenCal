@@ -9,4 +9,6 @@ module com.example.greencal {
 
     opens com.example.greencal to javafx.fxml;
     exports com.example.greencal;
+    exports com.example.greencal.Controller;
+    opens com.example.greencal.Controller to javafx.fxml;
 }

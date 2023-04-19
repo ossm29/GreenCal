@@ -1,6 +1,8 @@
 package com.example.greencal;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /** Classe qui représente une plante*/
 public class Plant {
@@ -8,9 +10,16 @@ public class Plant {
     private String surnom;
     private String nomScientifique;
     private String imagePath;
+
+    private ArrayList<String> notes = new ArrayList<>();
+
+    private ArrayList<PlantSizeMeasurement> sizeMeasurements = new ArrayList<>();
+
+
     private LocalDate plantationDate;
     private LocalDate rempotageDate;
     private LocalDate arrosageDate;
+
     private LocalDate entretienDate;
     private LocalDate recolteDate;
 
@@ -29,6 +38,7 @@ public class Plant {
         this.entretienDate = entretienDate;
         this.recolteDate = recolteDate;
     }
+
 
 
     public int getId() {
@@ -102,5 +112,27 @@ public class Plant {
     public void setRecolteDate(LocalDate recolteDate) {
         this.recolteDate = recolteDate;
     }
+
+    public ArrayList<String> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(ArrayList<String> notes) {
+        this.notes = notes;
+    }
+
+    public void addNote(String note) {
+        this.notes.add(note);
+    }
+
+    public ArrayList<PlantSizeMeasurement> getSizeMeasurements() {
+        return sizeMeasurements;
+    }
+
+    public void setSizeMeasurements(ArrayList<PlantSizeMeasurement> sizeMeasurements) {
+        this.sizeMeasurements = sizeMeasurements;
+    }
+
+
 }
 

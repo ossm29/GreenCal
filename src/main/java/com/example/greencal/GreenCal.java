@@ -1,5 +1,7 @@
 package com.example.greencal;
 
+import com.example.greencal.Controller.ControlMyPlants;
+import com.example.greencal.Controller.ControlNewPlant;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

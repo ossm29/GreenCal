@@ -1,5 +1,7 @@
-package com.example.greencal;
+package com.example.greencal.Controller;
 
+import com.example.greencal.Plant;
+import com.example.greencal.PlantPage;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -54,7 +56,7 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
     public void showMyPlants(BorderPane mainPane) {
         // Titre "Mes Plantes"
         Label titleLabel = new Label("Mes Plantes");
-        titleLabel.getStyleClass().add("title-label"); // Balise CSS
+        titleLabel.getStyleClass().add("title2-label"); // Balise CSS
 
         // Table des plantes
         TableView<Plant> plantsTable = new TableView<>();
@@ -77,7 +79,24 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
         TableColumn<Plant, LocalDate> plantingDateColumn = new TableColumn<>("Date de plantation");
         plantingDateColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getPlantationDate()));
 
-        plantsTable.getColumns().addAll(idColumn, imageColumn, surnomColumn, plantingDateColumn);
+        // Ajoutez la colonne "Notes"
+        TableColumn<Plant, String> notesColumn = new TableColumn<>("Notes");
+        notesColumn.setCellValueFactory(param -> {
+            List<String> notes = param.getValue().getNotes();
+            if (notes != null && !notes.isEmpty()) {
+                return new ReadOnlyObjectWrapper<>(notes.get(notes.size() - 1));
+            } else {
+                return new ReadOnlyObjectWrapper<>("");
+            }
+        });
+
+        // Configurer la colonne "Notes" pour qu'elle prenne toute la place restante à droite du tableau
+        notesColumn.prefWidthProperty().bind(plantsTable.widthProperty().subtract(idColumn.widthProperty()).subtract(imageColumn.widthProperty()).subtract(surnomColumn.widthProperty()).subtract(plantingDateColumn.widthProperty()));
+        notesColumn.setMaxWidth(Double.MAX_VALUE);
+
+        // Ajouter la colonne "Notes" à la liste des colonnes du tableau
+        plantsTable.getColumns().addAll(idColumn, imageColumn, surnomColumn, plantingDateColumn, notesColumn);
+
         plantsTable.setItems(loadPlants());
 
         // StackPane pour centrer horizontalement le tableau
@@ -162,8 +181,9 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
 
     /** Méthode appelée lors du double-clic sur une plante de la liste */
     private void showPlantDetails(BorderPane mainPane, Plant plant) {
-        // Afficher les détails de la plante et permettre à l'utilisateur de planifier des événements/tâches spécifiques
-        // On peut créer une nouvelle méthode ou classe pour gérer l'affichage des détails de la plante et la planification des événements/tâches.
+        // Afficher les détails de la plante
+        // créer une nouvelle classe pour gérer l'affichage des détails de la plante.
+        mainPane.setCenter(new PlantPage(plant));
     }
 
     /**
