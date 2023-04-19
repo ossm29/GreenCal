@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="réorganisation MyPlants, modifs affichage newPlant">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Plants/Plant6.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Plants/Plant7.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlMyPlants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/Controller/ControlMyPlants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/ControlNewPlant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/Controller/ControlNewPlant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/GreenCal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/Plant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/greencal/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/greencal/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/PlantPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/Controller/ControlMyPlants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/Controller/ControlMyPlants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +169,7 @@
       <workItem from="1681724641383" duration="104000" />
       <workItem from="1681730989722" duration="9000" />
       <workItem from="1681848322663" duration="1242000" />
-      <workItem from="1681932860813" duration="3767000" />
+      <workItem from="1681932860813" duration="4177000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1680355569631</created>
@@ -248,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681562176305</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="réorganisation MyPlants, modifs affichage newPlant">
+      <created>1681936862003</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681936862003</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

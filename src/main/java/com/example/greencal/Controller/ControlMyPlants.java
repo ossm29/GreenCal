@@ -1,6 +1,7 @@
 package com.example.greencal.Controller;
 
 import com.example.greencal.Plant;
+import com.example.greencal.PlantPage;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -182,6 +183,7 @@ public class ControlMyPlants implements EventHandler<ActionEvent> {
     private void showPlantDetails(BorderPane mainPane, Plant plant) {
         // Afficher les détails de la plante
         // créer une nouvelle classe pour gérer l'affichage des détails de la plante.
+        mainPane.setCenter(new PlantPage(plant));
     }
 
     /**
