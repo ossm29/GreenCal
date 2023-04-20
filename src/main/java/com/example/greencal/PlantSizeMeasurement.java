@@ -9,6 +9,10 @@ public class PlantSizeMeasurement {
     private double sizeInCm;
     private LocalDate date;
 
+    public PlantSizeMeasurement() {
+
+    }
+
     public PlantSizeMeasurement(double sizeInCm, LocalDate date) {
         this.sizeInCm = sizeInCm;
         this.date = date;

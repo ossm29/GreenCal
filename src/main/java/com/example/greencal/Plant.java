@@ -142,6 +142,7 @@ public class Plant {
 
     public void addNote(String note) {
         this.notes.add(note);
+        PlantDataHandler.savePlantToFile(this, "src/main/resources/Plants/Plant" + this.id + ".json");
     }
 
     public ArrayList<PlantSizeMeasurement> getSizeMeasurements() {
@@ -150,6 +151,12 @@ public class Plant {
 
     public void setSizeMeasurements(ArrayList<PlantSizeMeasurement> sizeMeasurements) {
         this.sizeMeasurements = sizeMeasurements;
+    }
+
+    public void addSizeMeasurement(PlantSizeMeasurement sizeMeasurements) {
+        this.sizeMeasurements.add(sizeMeasurements);
+        PlantDataHandler.savePlantToFile(this, "src/main/resources/Plants/Plant" + this.id + ".json");
+
     }
 
     public ArrayList<LocalDate> getArrosageDates() {

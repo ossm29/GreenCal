@@ -16,9 +16,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -34,11 +32,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-public class PlantPage extends VBox {
+public class PlantPage extends ScrollPane {
 
     public PlantPage(Plant plant) {
-        setSpacing(10);
-        setPadding(new Insets(10));
+        VBox content = new VBox();
+        content.setSpacing(10);
+        content.setPadding(new Insets(10));
 
         // Affiche le surnom de la plante
         Label surnomLabel = new Label("Ma " + plant.getSurnom());
@@ -80,13 +79,19 @@ public class PlantPage extends VBox {
 
         listsContainer.getChildren().addAll(rempotageList, arrosageList, entretienList, recolteList);
 
-        getChildren().addAll(surnomLabel, imageView, plantingDateLabel, listsContainer);
-        this.getStyleClass().add("plants-background");
+        content.getChildren().addAll(surnomLabel, imageView, plantingDateLabel, listsContainer);
+        content.getStyleClass().add("plants-background");
 
-        // Affiche le LineChart des mesures de taille de la plante
-        LineChart<String, Number> plantSizeChart = createPlantSizeChart(plant.getSizeMeasurements());
-        getChildren().add(plantSizeChart);
+        // Affiche le LineChart des mesures de taille de la plante avec le bouton d'ajout
+        VBox plantSizeChartWithButton = createPlantSizeChartWithButton(plant.getSizeMeasurements(), plant);
+        content.getChildren().add(plantSizeChartWithButton);
 
+        // Affiche la liste des notes et le bouton d'ajout
+        VBox notesListWithButton = createNotesListWithButton(plant.getNotes(), plant);
+        content.getChildren().add(notesListWithButton);
+
+        // Définir le contenu du ScrollPane
+        this.setContent(content);
     }
 
     private VBox createListWithHeaderAndButton(String title, ArrayList<LocalDate> dates, Runnable onButtonClick) {
@@ -113,7 +118,7 @@ public class PlantPage extends VBox {
     }
 
 
-        private LocalDate showDatePickerDialog(String dateType) {
+    private LocalDate showDatePickerDialog(String dateType) {
         Dialog<LocalDate> dialog = new Dialog<>();
         dialog.setTitle("+ "+dateType);
         dialog.setHeaderText("Sélectionnez une date:");
@@ -134,6 +139,39 @@ public class PlantPage extends VBox {
         return result.orElse(null);
     }
 
+    private VBox createPlantSizeChartWithButton(List<PlantSizeMeasurement> measurements, Plant plant) {
+        LineChart<String, Number> lineChart = createPlantSizeChart(measurements);
+
+        Button addButton = new Button("+");
+        addButton.setOnAction(e -> {
+            PlantSizeMeasurement newMeasurement = showAddMeasurementDialog();
+            if (newMeasurement != null) {
+                plant.addSizeMeasurement(newMeasurement);
+                lineChart.getData().clear();
+                XYChart.Series<String, Number> series = new XYChart.Series<>();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+                for (PlantSizeMeasurement measurement : plant.getSizeMeasurements()) {
+                    String dateAsString = measurement.getDate().format(formatter);
+                    series.getData().add(new XYChart.Data<>(dateAsString, measurement.getSizeInCm()));
+                }
+
+                lineChart.getData().add(series);
+            }
+        });
+
+        HBox chartTitleContainer = new HBox();
+        chartTitleContainer.setAlignment(Pos.CENTER);
+        chartTitleContainer.setSpacing(10);
+        Label chartTitle = new Label("Évolution de la taille de la plante");
+        chartTitleContainer.getChildren().addAll(chartTitle, addButton);
+
+        VBox container = new VBox(5, chartTitleContainer, lineChart);
+
+        return container;
+    }
+
+
     private LineChart<String, Number> createPlantSizeChart(List<PlantSizeMeasurement> measurements) {
         CategoryAxis xAxis = new CategoryAxis();
         xAxis.setLabel("Date");
@@ -142,7 +180,7 @@ public class PlantPage extends VBox {
         yAxis.setLabel("Taille (cm)");
 
         LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
-        lineChart.setTitle("Évolution de la taille de la plante");
+        //lineChart.setTitle("Évolution de la taille de la plante");
 
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Taille");
@@ -158,6 +196,76 @@ public class PlantPage extends VBox {
 
         return lineChart;
     }
+
+    private PlantSizeMeasurement showAddMeasurementDialog() {
+        Dialog<PlantSizeMeasurement> dialog = new Dialog<>();
+        dialog.setTitle("Ajouter une mesure");
+        dialog.setHeaderText("Saisissez la taille et la date de la mesure:");
+
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(20, 150, 10, 10));
+
+        TextField sizeTextField = new TextField();
+        sizeTextField.setPromptText("Taille en cm");
+        DatePicker datePicker = new DatePicker();
+
+        grid.add(new Label("Taille:"), 0, 0);
+        grid.add(sizeTextField, 1, 0);
+        grid.add(new Label("Date:"), 0, 1);
+        grid.add(datePicker, 1, 1);
+
+        dialog.getDialogPane().setContent(grid);
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+
+        dialog.setResultConverter(buttonType -> {
+            if (buttonType == ButtonType.OK) {
+                double size = Double.parseDouble(sizeTextField.getText());
+                LocalDate date = datePicker.getValue();
+                return new PlantSizeMeasurement(size, date);
+            }
+            return null;
+        });
+
+        Optional<PlantSizeMeasurement> result = dialog.showAndWait();
+        return result.orElse(null);
+    }
+
+    private String showAddNoteDialog() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Ajouter une note");
+        dialog.setHeaderText("Saisissez votre note:");
+        dialog.setContentText("Note:");
+
+        Optional<String> result = dialog.showAndWait();
+        return result.orElse(null);
+    }
+
+
+    private VBox createNotesListWithButton(ArrayList<String> notes, Plant plant) {
+        ListView<String> listView = new ListView<>();
+        listView.getItems().addAll(notes);
+
+        Button addButton = new Button("+");
+        addButton.setOnAction(e -> {
+            String newNote = showAddNoteDialog();
+            if (newNote != null) {
+                plant.addNote(newNote);
+                listView.getItems().add(newNote);
+            }
+        });
+
+        HBox headerContainer = new HBox();
+        headerContainer.setAlignment(Pos.CENTER);
+        headerContainer.setSpacing(10);
+        Label header = new Label("Notes");
+        headerContainer.getChildren().addAll(header, addButton);
+
+        VBox container = new VBox(5, headerContainer, listView);
+        return container;
+    }
+
 
 
 
