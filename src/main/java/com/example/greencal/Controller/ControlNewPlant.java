@@ -141,6 +141,16 @@ public class ControlNewPlant implements EventHandler<ActionEvent> {
 
             // Incrémenter l'ID pour la prochaine plante
             PlantID.id++;
+
+
+            // Afficher un pop-up indiquant que la plante a été enregistrée
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Plante enregistrée");
+            alert.setHeaderText(null);
+            alert.setContentText("Votre plante a été enregistrée avec succès.");
+            alert.showAndWait();
+
+            showNewPlantForm(mainPane);
         });
 
         saveButton.setMaxWidth(300);

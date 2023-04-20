@@ -93,5 +93,4 @@ public class WeatherBox extends HBox {
 
         return season;
     }
-    // Méthodes getTemperatureFromApi, getSeason, etc.
 }
