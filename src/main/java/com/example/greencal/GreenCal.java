@@ -1,27 +1,42 @@
 package com.example.greencal;
 
+import com.calendarfx.model.Calendar;
+import com.calendarfx.model.CalendarEvent;
+import com.calendarfx.model.CalendarSource;
+import com.calendarfx.model.Entry;
+import com.calendarfx.view.TimeField;
 import com.example.greencal.Controller.ControlMyPlants;
 import com.example.greencal.Controller.ControlNewPlant;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import com.jfoenix.controls.JFXTimePicker;
+
 
 import javafx.stage.Stage;
 import com.calendarfx.view.CalendarView;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Objects;
+import java.util.Optional;
 
 public class GreenCal extends Application {
 
     @Override
     public void start(Stage primaryStage) {
         CalendarView calendarView = new CalendarView();
+        Calendar calendar = new Calendar();
+        CalendarSource calendarSource = new CalendarSource();
+        calendarSource.getCalendars().addAll(calendar);
+        calendarView.getCalendarSources().add(calendarSource);
         calendarView.setShowAddCalendarButton(false);
         calendarView.setShowDeveloperConsole(false);
 
@@ -42,6 +57,7 @@ public class GreenCal extends Application {
 
         /* Handler des boutons */
         homeButton.setOnAction(event -> mainPane.setCenter(calendarView));
+        newEventButton.setOnAction(event -> showAddEventDialog(calendarView,calendar));
         newPlantButton.setOnAction(new ControlNewPlant(mainPane));
         myPlantsButton.setOnAction(new ControlMyPlants(mainPane));
 
@@ -73,6 +89,64 @@ public class GreenCal extends Application {
         return button;
     }
 
+    private void showAddEventDialog(CalendarView calendarView, Calendar cal) {
+        Dialog<Entry<String>> dialog = new Dialog<>();
+        dialog.setTitle("Ajouter un événement");
+        dialog.setHeaderText("Créez un nouvel événement:");
+
+        ButtonType createButtonType = new ButtonType("Créer", ButtonBar.ButtonData.OK_DONE);
+        dialog.getDialogPane().getButtonTypes().addAll(createButtonType, ButtonType.CANCEL);
+
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(20, 150, 10, 10));
+
+        TextField eventName = new TextField();
+        eventName.setPromptText("Nom de l'événement");
+
+        DatePicker eventDate = new DatePicker();
+        eventDate.setPromptText("Date de l'événement");
+
+        TimeField startTime = new TimeField();
+        TimeField endTime = new TimeField();
+
+        grid.add(new Label("Nom:"), 0, 0);
+        grid.add(eventName, 1, 0);
+        grid.add(new Label("Date:"), 0, 1);
+        grid.add(eventDate, 1, 1);
+        grid.add(new Label("Heure de début:"), 0, 2);
+        grid.add(startTime, 1, 2);
+        grid.add(new Label("Heure de fin:"), 0, 3);
+        grid.add(endTime, 1, 3);
+
+        dialog.getDialogPane().setContent(grid);
+
+        dialog.setResultConverter(dialogButton -> {
+            if (dialogButton == createButtonType) {
+                LocalDate selectedDate = eventDate.getValue();
+                LocalTime startDateTime = startTime.getValue();
+                LocalTime endDateTime = endTime.getValue();
+
+                // Créez les objets LocalDateTime en combinant la date et l'heure sélectionnées
+                LocalDateTime startLocalDateTime = LocalDateTime.of(selectedDate, startDateTime);
+                LocalDateTime endLocalDateTime = LocalDateTime.of(selectedDate, endDateTime);
+
+                Entry<String> entry = new Entry<>(eventName.getText());
+                entry.setInterval(startLocalDateTime, endLocalDateTime);
+
+                return entry;
+            }
+            return null;
+        });
+
+        Optional<Entry<String>> result = dialog.showAndWait();
+
+        result.ifPresent(entry -> {
+            // Ajoutez l'événement au calendrier
+            cal.addEntry(entry);
+        });
+    }
 
 
 }

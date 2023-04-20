@@ -38,9 +38,8 @@ public class PlantPage extends ScrollPane {
         VBox content = new VBox();
         content.setSpacing(10);
         content.setPadding(new Insets(10));
-
         // Affiche le surnom de la plante
-        Label surnomLabel = new Label("Ma " + plant.getSurnom());
+        Label surnomLabel = new Label("Ma " + plant.getSurnom()+ " ("+plant.getNomScientifique()+")");
         surnomLabel.getStyleClass().add("title2-label");
 
         // Affiche l'image de la plante

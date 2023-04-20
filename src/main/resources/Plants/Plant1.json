@@ -22,14 +22,17 @@
   }, {
     "sizeInCm" : 33.0,
     "date" : "2023-04-12"
+  }, {
+    "sizeInCm" : 60.0,
+    "date" : "2023-04-29"
   } ],
   "plantationDate" : "2023-04-19",
   "rempotageDate" : "2023-04-19",
   "rempotageDates" : [ "2023-04-05", "2023-03-29", "2023-04-28", "2023-04-25", "2023-03-30", "2023-04-19" ],
-  "arrosageDate" : null,
-  "arrosageDates" : [ null ],
-  "entretienDate" : null,
-  "entretienDates" : [ null ],
+  "arrosageDate" : "2023-04-12",
+  "arrosageDates" : [ null, "2023-03-30", "2023-04-12" ],
+  "entretienDate" : "2023-04-06",
+  "entretienDates" : [ null, "2023-04-06" ],
   "recolteDate" : null,
   "recolteDates" : [ null, null ]
 }
