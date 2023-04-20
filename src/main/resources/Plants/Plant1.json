@@ -1,0 +1,38 @@
+{
+  "id" : 1,
+  "surnom" : "tulipe",
+  "nomScientifique" : "",
+  "imagePath" : "/Users/oussamak/Downloads/2-2-tulip-png-image.png",
+  "notes" : [ "1ere plante", "zoozoeeez" ],
+  "sizeMeasurements" : [ {
+    "sizeInCm" : 25.0,
+    "date" : "2023-04-18"
+  }, {
+    "sizeInCm" : 30.0,
+    "date" : "2023-04-22"
+  }, {
+    "sizeInCm" : 50.0,
+    "date" : "2023-04-17"
+  }, {
+    "sizeInCm" : 50.0,
+    "date" : "2023-04-23"
+  }, {
+    "sizeInCm" : 100.0,
+    "date" : "2023-04-11"
+  }, {
+    "sizeInCm" : 33.0,
+    "date" : "2023-04-12"
+  }, {
+    "sizeInCm" : 60.0,
+    "date" : "2023-04-29"
+  } ],
+  "plantationDate" : "2023-04-19",
+  "rempotageDate" : "2023-04-19",
+  "rempotageDates" : [ "2023-04-05", "2023-03-29", "2023-04-28", "2023-04-25", "2023-03-30", "2023-04-19" ],
+  "arrosageDate" : "2023-04-12",
+  "arrosageDates" : [ null, "2023-03-30", "2023-04-12" ],
+  "entretienDate" : "2023-04-06",
+  "entretienDates" : [ null, "2023-04-06" ],
+  "recolteDate" : null,
+  "recolteDates" : [ null, null ]
+}

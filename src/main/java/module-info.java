@@ -6,6 +6,7 @@ module com.example.greencal {
     requires com.calendarfx.view;
     requires com.fasterxml.jackson.databind;
     requires com.fasterxml.jackson.datatype.jsr310;
+    requires com.jfoenix;
 
     opens com.example.greencal to javafx.fxml;
     exports com.example.greencal;
