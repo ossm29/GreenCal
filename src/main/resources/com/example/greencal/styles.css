@@ -29,3 +29,24 @@
     -fx-font-weight: bold; /* Ajout d'un style de police gras pour plus de visibilité */
 }
 
+.top-bar {
+    -fx-background-color: #84bbff;
+    -fx-padding: 10;
+}
+
+.date-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #ecf0f1;
+}
+
+.temperature-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #ecf0f1;
+}
+
+.season-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #ecf0f1;
+}
+
+
