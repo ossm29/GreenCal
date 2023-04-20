@@ -5,11 +5,13 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import javafx.geometry.Insets;
@@ -34,7 +36,7 @@ public class PlantPage extends VBox {
         setPadding(new Insets(10));
 
         // Affiche le surnom de la plante
-        Label surnomLabel = new Label("Surnom: " + plant.getSurnom());
+        Label surnomLabel = new Label("Ma " + plant.getSurnom());
         surnomLabel.getStyleClass().add("title2-label");
 
         // Affiche l'image de la plante
@@ -47,25 +49,25 @@ public class PlantPage extends VBox {
         HBox listsContainer = new HBox(10);
 
         VBox rempotageList = createListWithHeaderAndButton("Dates de rempotage", plant.getRempotageDates(), () -> {
-            LocalDate date = showDatePickerDialog();
+            LocalDate date = showDatePickerDialog("rempotage");
             if (date != null) {
                 plant.addRempotageDate(date);
             }
         });
         VBox arrosageList = createListWithHeaderAndButton("Dates d'arrosage", plant.getArrosageDates(), () -> {
-            LocalDate date = showDatePickerDialog();
+            LocalDate date = showDatePickerDialog("arrosage");
             if (date != null) {
                 plant.addArrosageDate(date);
             }
         });
         VBox entretienList = createListWithHeaderAndButton("Dates d'entretien", plant.getEntretienDates(), () -> {
-            LocalDate date = showDatePickerDialog();
+            LocalDate date = showDatePickerDialog("entretien");
             if (date != null) {
                 plant.addEntretienDate(date);
             }
         });
         VBox recolteList = createListWithHeaderAndButton("Dates de récolte", plant.getRecolteDates(), () -> {
-            LocalDate date = showDatePickerDialog();
+            LocalDate date = showDatePickerDialog("récolte");
             if (date != null) {
                 plant.addRecolteDate(date);
             }
@@ -74,11 +76,14 @@ public class PlantPage extends VBox {
         listsContainer.getChildren().addAll(rempotageList, arrosageList, entretienList, recolteList);
 
         getChildren().addAll(surnomLabel, imageView, plantingDateLabel, listsContainer);
+        this.getStyleClass().add("plants-background");
+
     }
 
     private VBox createListWithHeaderAndButton(String title, ArrayList<LocalDate> dates, Runnable onButtonClick) {
         Label header = new Label(title);
         ListView<LocalDate> listView = new ListView<>();
+        listView.setPrefHeight(100); // Modifiez cette valeur pour ajuster la hauteur des tableaux
         dates.stream().filter(Objects::nonNull).forEach(listView.getItems()::add);
 
         Button addButton = new Button("+");
@@ -88,15 +93,20 @@ public class PlantPage extends VBox {
             dates.stream().filter(Objects::nonNull).forEach(listView.getItems()::add);
         });
 
-        VBox container = new VBox(5, header, listView, addButton);
+        HBox headerContainer = new HBox(header, addButton);
+        headerContainer.setSpacing(10); // Ajustez l'espacement entre le titre et le bouton
+        headerContainer.setAlignment(Pos.CENTER_LEFT); // Alignez le titre et le bouton à gauche
+        HBox.setHgrow(header, Priority.ALWAYS); // Assurez-vous que le titre prend tout l'espace disponible, laissant le bouton à droite
+
+        VBox container = new VBox(5, headerContainer, listView);
 
         return container;
     }
 
 
-    private LocalDate showDatePickerDialog() {
+        private LocalDate showDatePickerDialog(String dateType) {
         Dialog<LocalDate> dialog = new Dialog<>();
-        dialog.setTitle("Choisir une date");
+        dialog.setTitle("+ "+dateType);
         dialog.setHeaderText("Sélectionnez une date:");
 
         DatePicker datePicker = new DatePicker();

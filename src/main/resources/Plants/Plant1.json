@@ -1,0 +1,17 @@
+{
+  "id" : 1,
+  "surnom" : "tulipe",
+  "nomScientifique" : "",
+  "imagePath" : "/Users/oussamak/Downloads/2-2-tulip-png-image.png",
+  "notes" : [ "1ere plante" ],
+  "sizeMeasurements" : [ ],
+  "plantationDate" : "2023-04-19",
+  "rempotageDate" : "2023-03-30",
+  "rempotageDates" : [ "2023-04-05", "2023-03-29", "2023-04-28", "2023-04-25", "2023-03-30" ],
+  "arrosageDate" : null,
+  "arrosageDates" : [ null ],
+  "entretienDate" : null,
+  "entretienDates" : [ null ],
+  "recolteDate" : null,
+  "recolteDates" : [ null, null ]
+}
