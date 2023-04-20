@@ -16,7 +16,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import com.jfoenix.controls.JFXTimePicker;
 
 
 import javafx.stage.Stage;
