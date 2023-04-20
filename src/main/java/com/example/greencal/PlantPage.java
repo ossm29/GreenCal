@@ -6,7 +6,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.chart.Axis;
+import javafx.scene.chart.CategoryAxis;
+
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,9 +31,8 @@ import javafx.scene.text.FontWeight;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Optional;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class PlantPage extends VBox {
 
@@ -78,6 +83,10 @@ public class PlantPage extends VBox {
         getChildren().addAll(surnomLabel, imageView, plantingDateLabel, listsContainer);
         this.getStyleClass().add("plants-background");
 
+        // Affiche le LineChart des mesures de taille de la plante
+        LineChart<String, Number> plantSizeChart = createPlantSizeChart(plant.getSizeMeasurements());
+        getChildren().add(plantSizeChart);
+
     }
 
     private VBox createListWithHeaderAndButton(String title, ArrayList<LocalDate> dates, Runnable onButtonClick) {
@@ -124,5 +133,32 @@ public class PlantPage extends VBox {
         Optional<LocalDate> result = dialog.showAndWait();
         return result.orElse(null);
     }
+
+    private LineChart<String, Number> createPlantSizeChart(List<PlantSizeMeasurement> measurements) {
+        CategoryAxis xAxis = new CategoryAxis();
+        xAxis.setLabel("Date");
+
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Taille (cm)");
+
+        LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
+        lineChart.setTitle("Évolution de la taille de la plante");
+
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Taille");
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        for (PlantSizeMeasurement measurement : measurements) {
+            String dateAsString = measurement.getDate().format(formatter);
+            series.getData().add(new XYChart.Data<>(dateAsString, measurement.getSizeInCm()));
+        }
+
+        lineChart.getData().add(series);
+
+        return lineChart;
+    }
+
+
 
 }

@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="ajout listes dates">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Plants/Plant1.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/PlantPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/PlantPage.java" afterDir="false" />
     </list>
@@ -171,7 +170,7 @@
       <workItem from="1681730989722" duration="9000" />
       <workItem from="1681848322663" duration="1242000" />
       <workItem from="1681932860813" duration="10415000" />
-      <workItem from="1681999055608" duration="1475000" />
+      <workItem from="1681999055608" duration="2117000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1680355569631</created>
@@ -278,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681945059395</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="ajout listes dates">
+      <created>1682000816739</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682000816739</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
