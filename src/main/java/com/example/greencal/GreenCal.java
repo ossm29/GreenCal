@@ -72,6 +72,23 @@ public class GreenCal extends Application {
         newEventButton.setOnAction(event -> showAddEventDialog(calendarView,calendar));
         newPlantButton.setOnAction(new ControlNewPlant(mainPane));
         myPlantsButton.setOnAction(new ControlMyPlants(mainPane));
+        helpButton.setOnAction(event -> {
+            // Créer un Dialog pour afficher l'aide
+            Dialog<Void> helpDialog = new Dialog<>();
+            helpDialog.setTitle("Aide");
+
+            // Charger l'image d'aide
+            Image helpImage = new Image(getClass().getResource("/images/aide.png").toExternalForm());
+            ImageView helpImageView = new ImageView(helpImage);
+
+            // Définir le contenu du Dialog
+            helpDialog.getDialogPane().setContent(helpImageView);
+            helpDialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+            helpDialog.setResizable(true);
+
+            // Afficher le Dialog
+            helpDialog.showAndWait();
+        });
 
         Scene scene = new Scene(mainPane, 1080, 720);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());

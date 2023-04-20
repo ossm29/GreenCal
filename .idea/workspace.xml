@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="màj affichage météo et topbar">
+    <list default="true" id="df69060f-8d6f-49c0-9ac3-beb2ad7500b4" name="Changes" comment="pop-up new plant saved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/greencal/Controller/ControlNewPlant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/greencal/Controller/ControlNewPlant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Plants/Plant1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Plants/Plant1.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +183,7 @@
       <workItem from="1681848322663" duration="1242000" />
       <workItem from="1681932860813" duration="10415000" />
       <workItem from="1681999055608" duration="12629000" />
-      <workItem from="1682028784315" duration="4856000" />
+      <workItem from="1682028784315" duration="6040000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1680355569631</created>
@@ -348,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682032561007</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="pop-up new plant saved">
+      <created>1682033762797</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1682033762797</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +391,8 @@
     <MESSAGE value="modif design plantpage" />
     <MESSAGE value="affichage météo et topbar" />
     <MESSAGE value="màj affichage météo et topbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="màj affichage météo et topbar" />
+    <MESSAGE value="pop-up new plant saved" />
+    <option name="LAST_COMMIT_MESSAGE" value="pop-up new plant saved" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
