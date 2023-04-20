@@ -42,6 +42,9 @@ public class PlantPage extends ScrollPane {
         Label surnomLabel = new Label("Ma " + plant.getSurnom()+ " ("+plant.getNomScientifique()+")");
         surnomLabel.getStyleClass().add("title2-label");
 
+        content.setAlignment(Pos.TOP_CENTER); // Ajoutez cette ligne
+
+
         // Affiche l'image de la plante
         ImageView imageView = new ImageView(new Image("file:" + plant.getImagePath(), 150, 150, true, true));
 
