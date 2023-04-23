@@ -5,7 +5,7 @@
   <br>
   GreenCal
 </div>
-
+``` 
 
 - [Introduction](#introduction)
 - [Fonctionnalités](#fonctionnalités)
