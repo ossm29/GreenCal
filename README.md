@@ -7,20 +7,20 @@
 </div>
 
 
-- [Introduction :](#introduction--)
-- [Fonctionnalités :](#fonctionnalit-s--)
-- [Choix d’interface :](#choix-d-interface--)
-- [Conclusion :](#conclusion--)
+- [Introduction :](#introduction)
+- [Fonctionnalités :](#fonctionnalités)
+- [Choix d’interface :](#choix-d'interface)
+- [Conclusion :](#conclusion)
 
 
-# Introduction :
+# Introduction
 
 Nous avons développé une application de gestion de calendrier et de suivi des plantes, appelée GreenCal. Cette application permet aux utilisateurs de gérer leurs événements et de suivre l'évolution de leurs plantes, tout en ayant accès aux informations météorologiques pertinentes. L'objectif principal de ce projet était de concevoir une interface utilisateur intuitive et efficace en suivant les heuristiques de Nielsen pour la conception d'interfaces utilisateur. 
 
 Dans ce rapport, nous présentons les fonctionnalités de l'application, puis les choix d'interface effectués et la manière dont nous avons appliqué les heuristiques de Nielsen pour améliorer l'expérience utilisateur.
 
 
-# Fonctionnalités :
+# Fonctionnalités
 
 
 <table>
@@ -150,7 +150,7 @@ Dans ce rapport, nous présentons les fonctionnalités de l'application, puis le
 
 
 
-# Choix d’interface : 
+# Choix d’interface
 ![](https://i.imgur.com/qSC1chA.png)
 
 
@@ -250,7 +250,7 @@ La dernière touche du menu latéral affiche un pop-up qui documente l’applica
 
 ![](https://i.imgur.com/dat4GtQ.png)
 
-# Conclusion :
+# Conclusion
 
 GreenCal est une application bien conçue qui répond aux besoins des utilisateurs en matière de gestion de calendrier et de suivi des plantes. Nous avons veillé à ce que l'interface utilisateur soit intuitive et facile à utiliser en suivant les heuristiques de Nielsen pour la conception d'interfaces utilisateur. Les fonctionnalités offertes par l'application sont complètes et répondent aux attentes des utilisateurs. 
 
