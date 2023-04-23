@@ -1,16 +1,12 @@
 
-```html
-<pre>
-
-<div style="text-align:center; font-size: 2em; color: green;">
-  <strong>Agenda Étudiant Jardinage</strong>
+<p align="center">
+  <img width="400" height="200" src="https://placehold.it/400x200" alt="Agenda Étudiant Jardinage">
   <br>
-  GreenCal
-</div>
+  <strong><font size="6" color="green">Agenda Étudiant Jardinage</font></strong>
+  <br>
+  <font size="4" color="green">GreenCal</font>
+</p>
 
-</pre>
-
-``` 
 
 - [Introduction](#introduction)
 - [Fonctionnalités](#fonctionnalités)
