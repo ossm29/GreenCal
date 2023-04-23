@@ -7,10 +7,10 @@
 </div>
 
 
-- [Introduction :](#introduction)
-- [Fonctionnalités :](#fonctionnalités)
-- [Choix d’interface :](#choix-d'interface)
-- [Conclusion :](#conclusion)
+- [Introduction](#introduction)
+- [Fonctionnalités](#fonctionnalités)
+- [Choix d’interface](#choix d'interface)
+- [Conclusion](#conclusion)
 
 
 # Introduction
