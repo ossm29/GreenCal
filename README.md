@@ -1,16 +1,11 @@
 
-<p align="center">
-  <img width="400" height="200" src="https://placehold.it/400x200" alt="Agenda Étudiant Jardinage">
-  <br>
-  <strong><font size="6" color="green">Agenda Étudiant Jardinage</font></strong>
-  <br>
-  <font size="4" color="green">GreenCal</font>
-</p>
+<p align="center"><strong><font color="green">GreenCal</font></strong></p>
 
+Agenda étudiant pour le jardinage
 
 - [Introduction](#introduction)
 - [Fonctionnalités](#fonctionnalités)
-- [Choix d’interface](#Choix-d'interface)
+- [Choix d'interface](#Choix-d-interface)
 - [Conclusion](#conclusion)
 
 
@@ -151,7 +146,7 @@ Dans ce rapport, nous présentons les fonctionnalités de l'application, puis le
 
 
 
-# Choix d’interface
+# Choix d interface
 ![](https://i.imgur.com/qSC1chA.png)
 
 
