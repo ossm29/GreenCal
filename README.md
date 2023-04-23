@@ -9,7 +9,7 @@
 
 - [Introduction](#introduction)
 - [Fonctionnalités](#fonctionnalités)
-- [Choix d’interface](#choix-d'interface)
+- [Choix d’interface](#choix-d-interface)
 - [Conclusion](#conclusion)
 
 
