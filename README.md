@@ -1,7 +1,8 @@
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/77997318/233859238-0f9d2aa6-d39f-422d-b37b-52e23e8aa072.png" alt="image">
+</p>
 
-<p align="center"><strong><font color="green">GreenCal</font></strong></p>
-
-Agenda étudiant pour le jardinage
+JavaFX, avec la bibliothèque CalendarFX
 
 - [Introduction](#introduction)
 - [Fonctionnalités](#fonctionnalités)
