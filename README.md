@@ -12,10 +12,7 @@ JavaFX, avec la bibliothèque CalendarFX
 
 # Introduction
 
-Nous avons développé une application de gestion de calendrier et de suivi des plantes, appelée GreenCal. Cette application permet aux utilisateurs de gérer leurs événements et de suivre l'évolution de leurs plantes, tout en ayant accès aux informations météorologiques pertinentes. L'objectif principal de ce projet était de concevoir une interface utilisateur intuitive et efficace en suivant les heuristiques de Nielsen pour la conception d'interfaces utilisateur. 
-
-Dans ce rapport, nous présentons les fonctionnalités de l'application, puis les choix d'interface effectués et la manière dont nous avons appliqué les heuristiques de Nielsen pour améliorer l'expérience utilisateur.
-
+Cette application permet aux utilisateurs de gérer leurs événements et de suivre l'évolution de leurs plantes, tout en ayant accès aux informations météorologiques pertinentes. L'objectif principal de ce projet était de concevoir une interface utilisateur intuitive et efficace en suivant les heuristiques de Nielsen pour la conception d'interfaces utilisateur. 
 
 # Fonctionnalités
 
